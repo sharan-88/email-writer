@@ -24,7 +24,7 @@ An intelligent Email Writing Assistant powered by **Google Gemini**, **Spring Bo
 ##  How It Works
 
 ### 1. Chrome Extension
-- Adds a **"Write with AI"** button in the email compose toolbar (e.g., in Gmail).
+- Adds a **" AI reply"** button in the email compose toolbar (e.g., in Gmail).
 - On button click, captures the current email context or prompt from user input.
 - Sends this to the Spring Boot backend API.
 
