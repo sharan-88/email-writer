@@ -1,4 +1,4 @@
-name: Deploy Vite app to GitHub Pages
+name: Deploy Vite app
 
 on:
   push:
@@ -9,29 +9,25 @@ permissions:
   contents: write
 
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Install Node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: |
-          cd email-writer-rjs
-          npm install
+        run: cd email-writer-rjs && npm install
 
-      - name: Build
-        run: |
-          cd email-writer-rjs
-          npm run build
+      - name: Build project
+        run: cd email-writer-rjs && npm run build
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
